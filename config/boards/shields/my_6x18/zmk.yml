@@ -6,3 +6,4 @@ url: https://github.com/Porpreecha/POR_DESIGN
 requires: [nice_nano_v2]
 features:
   - keys
+  - per-key-rgb
