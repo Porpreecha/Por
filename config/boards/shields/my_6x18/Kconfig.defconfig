@@ -1,0 +1,6 @@
+if SHIELD_MY_6X18
+
+config ZMK_KEYBOARD_NAME
+    default "MY_6X18"
+
+endif

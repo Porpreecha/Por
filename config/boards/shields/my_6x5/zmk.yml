@@ -1,0 +1,8 @@
+file_format: "1"
+id: my_6x5
+name: My 6x5 Keyboard
+type: shield
+url: https://github.com/Porpreecha/POR_DESIGN
+requires: [nice_nano_v2]
+features:
+  - keys

@@ -1,0 +1,41 @@
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    /* Keyscan matrix */
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+
+        /* 6 แถวใช้ขา GPIO ของ MCU โดยตรง */
+        row-gpios = <&gpio0 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio0 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio0 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio0 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+
+        /* 18 คอลัมน์ ใช้จาก MCP23017 (16 จากตัวแรก + 2 จากตัวสอง) */
+        col-gpios =
+            <&mcp23017_0 0 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 1 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 2 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 3 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 4 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 5 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 6 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 7 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 8 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 9 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 10 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 11 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 12 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 13 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 14 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 15 GPIO_ACTIVE_HIGH>,
+
+            <&mcp23017_1 0 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_1 1 GPIO_ACTIVE_HIGH>;
+    };
+};
