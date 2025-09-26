@@ -26,36 +26,36 @@
 
         behaviors {
             encoder1_ccw: encoder1_ccw {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&kp MS_BTN_MIDDLE, &kp MS_LEFT>;
+                compatible = "zmk,encoder-macro";
+                key1 = <MS_BTN_MIDDLE>;
+                key2 = <MS_LEFT>;
             };
             encoder1_cw: encoder1_cw {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&kp MS_BTN_MIDDLE, &kp MS_RIGHT>;
+                compatible = "zmk,encoder-macro";
+                key1 = <MS_BTN_MIDDLE>;
+                key2 = <MS_RIGHT>;
             };
 
             encoder2_ccw: encoder2_ccw {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&kp MS_BTN_MIDDLE, &kp MS_UP>;
+                compatible = "zmk,encoder-macro";
+                key1 = <MS_BTN_MIDDLE>;
+                key2 = <MS_UP>;
             };
             encoder2_cw: encoder2_cw {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&kp MS_BTN_MIDDLE, &kp MS_DOWN>;
+                compatible = "zmk,encoder-macro";
+                key1 = <MS_BTN_MIDDLE>;
+                key2 = <MS_DOWN>;
             };
 
             encoder3_ccw: encoder3_ccw {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&kp C_MINUS>;
+                compatible = "zmk,encoder-macro";
+                key1 = <C_MINUS>;
+                key2 = <0>;
             };
             encoder3_cw: encoder3_cw {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&kp C_EQUAL>;
+                compatible = "zmk,encoder-macro";
+                key1 = <C_EQUAL>;
+                key2 = <0>;
             };
         };
 
@@ -64,19 +64,19 @@
                 compatible = "zmk,encoder";
                 a-gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
                 b-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
-                encoder-maps = <&encoder1_ccw, &encoder1_cw>;
+                encoder-maps = <&encoder1_ccw &encoder1_cw>;
             };
             encoder2: encoder2 {
                 compatible = "zmk,encoder";
                 a-gpios = <&gpio0 14 GPIO_ACTIVE_HIGH>;
                 b-gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
-                encoder-maps = <&encoder2_ccw, &encoder2_cw>;
+                encoder-maps = <&encoder2_ccw &encoder2_cw>;
             };
             encoder3: encoder3 {
                 compatible = "zmk,encoder";
                 a-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
                 b-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
-                encoder-maps = <&encoder3_ccw, &encoder3_cw>;
+                encoder-maps = <&encoder3_ccw &encoder3_cw>;
             };
         };
     };
