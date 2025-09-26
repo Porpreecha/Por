@@ -1,0 +1,100 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define BASE 0
+#define FN   1
+
+/ {
+    behaviors {
+        /* Encoder 1 → Mouse Middle + Horizontal Scroll */
+        encoder1_cw: encoder1_cw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mkp MB3 &mmv RIGHT &mkp MB3_UP>;
+        };
+        encoder1_ccw: encoder1_ccw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mkp MB3 &mmv LEFT &mkp MB3_UP>;
+        };
+
+        /* Encoder 2 → Mouse Middle + Vertical Scroll */
+        encoder2_cw: encoder2_cw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mkp MB3 &mmv DOWN &mkp MB3_UP>;
+        };
+        encoder2_ccw: encoder2_ccw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mkp MB3 &mmv UP &mkp MB3_UP>;
+        };
+
+        /* Encoder 3 → Zoom (Ctrl + +/-) */
+        encoder3_cw: encoder3_cw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp EQUAL>;
+        };
+        encoder3_ccw: encoder3_ccw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp MINUS>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        base_layer {
+            label = "BASE";
+            bindings = <
+                &kp ESC    &kp Q &kp W &kp E &kp R
+                &kp TAB    &kp A &kp S &kp D &kp F
+                &kp LSHFT  &kp Z &kp X &kp C &kp V
+                &kp LCTRL  &kp G &kp H &kp J &kp K
+                &kp LALT   &kp U &kp I &kp O &kp P
+                &kp SPC    &kp N &kp M &kp COMMA &kp DOT
+                &mo 1      &kp LEFT &kp DOWN &kp UP &kp RIGHT
+            >;
+        };
+
+        fn_layer {
+            label = "FN";
+            bindings = <
+                &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans
+            >;
+        };
+    };
+
+    sensors {
+        encoder1 {
+            compatible = "zmk,encoder";
+            a-gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
+            b-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+            bindings = <&encoder1_cw>, <&encoder1_ccw>;
+        };
+
+        encoder2 {
+            compatible = "zmk,encoder";
+            a-gpios = <&gpio0 14 GPIO_ACTIVE_HIGH>;
+            b-gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+            bindings = <&encoder2_cw>, <&encoder2_ccw>;
+        };
+
+        encoder3 {
+            compatible = "zmk,encoder";
+            a-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
+            b-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
+            bindings = <&encoder3_cw>, <&encoder3_ccw>;
+        };
+    };
+};
