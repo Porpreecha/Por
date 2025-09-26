@@ -1,78 +1,83 @@
 / {
-    chosen {
-        zmk,kscan = &kscan0;
-    };
+    compatible = "zmk,keyboard";
 
-    kscan0: kscan {
-        compatible = "zmk,kscan-gpio-matrix";
-        row-gpios = <&gpio0 0 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 1 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 2 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 3 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 4 GPIO_ACTIVE_HIGH>;
-        col-gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 6 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 7 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 8 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 9 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 10 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 11 GPIO_ACTIVE_HIGH>;
-        diode-direction = "col2row";
-    };
+    keyboard {
+        label = "My 5x7 Keyboard";
 
-    behaviors {
-        encoder1_ccw: encoder1_ccw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp MS_BTN_MIDDLE &kp MS_LEFT>;
-        };
-        encoder1_cw: encoder1_cw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp MS_BTN_MIDDLE &kp MS_RIGHT>;
+        matrix {
+            compatible = "zmk,matrix";
+            rows = <5>;
+            cols = <7>;
+
+            row-gpios = <&gpio0 0 GPIO_ACTIVE_HIGH
+                         &gpio0 1 GPIO_ACTIVE_HIGH
+                         &gpio0 2 GPIO_ACTIVE_HIGH
+                         &gpio0 3 GPIO_ACTIVE_HIGH
+                         &gpio0 4 GPIO_ACTIVE_HIGH>;
+
+            col-gpios = <&gpio0 5 GPIO_ACTIVE_HIGH
+                         &gpio0 6 GPIO_ACTIVE_HIGH
+                         &gpio0 7 GPIO_ACTIVE_HIGH
+                         &gpio0 8 GPIO_ACTIVE_HIGH
+                         &gpio0 9 GPIO_ACTIVE_HIGH
+                         &gpio0 10 GPIO_ACTIVE_HIGH
+                         &gpio0 11 GPIO_ACTIVE_HIGH>;
         };
 
-        encoder2_ccw: encoder2_ccw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp MS_BTN_MIDDLE &kp MS_UP>;
-        };
-        encoder2_cw: encoder2_cw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp MS_BTN_MIDDLE &kp MS_DOWN>;
+        behaviors {
+            encoder1_ccw: encoder1_ccw {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&kp MS_BTN_MIDDLE &kp MS_LEFT>;
+            };
+            encoder1_cw: encoder1_cw {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&kp MS_BTN_MIDDLE &kp MS_RIGHT>;
+            };
+
+            encoder2_ccw: encoder2_ccw {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&kp MS_BTN_MIDDLE &kp MS_UP>;
+            };
+            encoder2_cw: encoder2_cw {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&kp MS_BTN_MIDDLE &kp MS_DOWN>;
+            };
+
+            encoder3_ccw: encoder3_ccw {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&kp C_MINUS>;
+            };
+            encoder3_cw: encoder3_cw {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&kp C_EQUAL>;
+            };
         };
 
-        encoder3_ccw: encoder3_ccw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp C_MINUS>;
-        };
-        encoder3_cw: encoder3_cw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp C_EQUAL>;
-        };
-    };
-
-    sensors {
-        encoder1: encoder1 {
-            compatible = "zmk,encoder";
-            a-gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
-            b-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
-            encoder-maps = <&encoder1_ccw &encoder1_cw>;
-        };
-        encoder2: encoder2 {
-            compatible = "zmk,encoder";
-            a-gpios = <&gpio0 14 GPIO_ACTIVE_HIGH>;
-            b-gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
-            encoder-maps = <&encoder2_ccw &encoder2_cw>;
-        };
-        encoder3: encoder3 {
-            compatible = "zmk,encoder";
-            a-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
-            b-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
-            encoder-maps = <&encoder3_ccw &encoder3_cw>;
+        sensors {
+            encoder1: encoder1 {
+                compatible = "zmk,encoder";
+                a-gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
+                b-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+                encoder-maps = <&encoder1_ccw &encoder1_cw>;
+            };
+            encoder2: encoder2 {
+                compatible = "zmk,encoder";
+                a-gpios = <&gpio0 14 GPIO_ACTIVE_HIGH>;
+                b-gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+                encoder-maps = <&encoder2_ccw &encoder2_cw>;
+            };
+            encoder3: encoder3 {
+                compatible = "zmk,encoder";
+                a-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
+                b-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
+                encoder-maps = <&encoder3_ccw &encoder3_cw>;
+            };
         };
     };
 };
