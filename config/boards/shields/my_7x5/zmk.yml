@@ -1,6 +1,6 @@
 file_format: "1"
 id: my_7x5
-name: My 7x5 Keyboard
+name: My 5x7 Keyboard
 type: shield
 url: https://github.com/Porpreecha/POR_DESIGN
 requires: [nice_nano_v2]
@@ -8,3 +8,6 @@ features:
   - keys
   - encoder
   - rgb
+matrix:
+  rows: 5
+  cols: 7
