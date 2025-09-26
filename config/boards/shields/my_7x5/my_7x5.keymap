@@ -12,36 +12,58 @@
         encoder1_cw: encoder1_cw {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mkp MB3 &mmv RIGHT &mkp MB3_UP>;
+            bindings = <
+                &mkp MB3
+                &mmv MOVE_RIGHT
+                &mkp MB3
+            >;
         };
         encoder1_ccw: encoder1_ccw {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mkp MB3 &mmv LEFT &mkp MB3_UP>;
+            bindings = <
+                &mkp MB3
+                &mmv MOVE_LEFT
+                &mkp MB3
+            >;
         };
 
         /* Encoder 2 → Mouse Middle + Vertical Scroll */
         encoder2_cw: encoder2_cw {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mkp MB3 &mmv DOWN &mkp MB3_UP>;
+            bindings = <
+                &mkp MB3
+                &mmv MOVE_DOWN
+                &mkp MB3
+            >;
         };
         encoder2_ccw: encoder2_ccw {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mkp MB3 &mmv UP &mkp MB3_UP>;
+            bindings = <
+                &mkp MB3
+                &mmv MOVE_UP
+                &mkp MB3
+            >;
         };
 
         /* Encoder 3 → Zoom (Ctrl + +/-) */
         encoder3_cw: encoder3_cw {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LCTRL &kp EQUAL>;
+            bindings = <
+                &kp LCTRL
+                &kp EQUAL
+            >;
         };
         encoder3_ccw: encoder3_ccw {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LCTRL &kp MINUS>;
+            bindings = <
+                &kp LCTRL
+                &kp MINUS
+            >;
         };
     };
 
