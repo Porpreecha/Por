@@ -1,3 +1,9 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -22,73 +28,6 @@
                 &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans
             >;
-        };
-    };
-
-    // -----------------------------
-    // Behaviors สำหรับ encoder
-    // -----------------------------
-    behaviors {
-        // Encoder 1: Mouse Middle + Move Left/Right
-        encoder1_ccw: encoder1_ccw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp MS_BTN_MIDDLE &kp MS_LEFT>;
-        };
-        encoder1_cw: encoder1_cw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp MS_BTN_MIDDLE &kp MS_RIGHT>;
-        };
-
-        // Encoder 2: Mouse Middle + Move Up/Down
-        encoder2_ccw: encoder2_ccw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp MS_BTN_MIDDLE &kp MS_UP>;
-        };
-        encoder2_cw: encoder2_cw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp MS_BTN_MIDDLE &kp MS_DOWN>;
-        };
-
-        // Encoder 3: Zoom (Ctrl + + / Ctrl + -)
-        encoder3_ccw: encoder3_ccw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp C_MINUS>;
-        };
-        encoder3_cw: encoder3_cw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp C_EQUAL>;
-        };
-    };
-
-    // -----------------------------
-    // Encoder Mapping
-    // -----------------------------
-    sensors {
-        encoder1: encoder1 {
-            compatible = "zmk,encoder";
-            a-gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
-            b-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
-            encoder-maps = <&encoder1_ccw>, <&encoder1_cw>;
-        };
-
-        encoder2: encoder2 {
-            compatible = "zmk,encoder";
-            a-gpios = <&gpio0 14 GPIO_ACTIVE_HIGH>;
-            b-gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
-            encoder-maps = <&encoder2_ccw>, <&encoder2_cw>;
-        };
-
-        encoder3: encoder3 {
-            compatible = "zmk,encoder";
-            a-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
-            b-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
-            encoder-maps = <&encoder3_ccw>, <&encoder3_cw>;
         };
     };
 };
