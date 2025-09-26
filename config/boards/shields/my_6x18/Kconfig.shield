@@ -1,2 +1,0 @@
-config SHIELD_MY_6X18
-    def_bool $(shields_list_contains,my_6x18)
