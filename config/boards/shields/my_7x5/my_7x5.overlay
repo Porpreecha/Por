@@ -1,40 +1,14 @@
+/* Overlay สำหรับ shield my_7x5 */
+#include <dt-bindings/zmk/keys.h>
+#include <behaviors.dtsi>
+
 / {
-    chosen {
-        zmk,kscan = &kscan0;
-    };
-
-    kscan0: kscan {
-        compatible = "zmk,kscan-gpio-matrix";
-        row-gpios = <&gpio0 0 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 1 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 2 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 3 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 4 GPIO_ACTIVE_HIGH>;
-        col-gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 6 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 7 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 8 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 9 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 10 GPIO_ACTIVE_HIGH>,
-                    <&gpio0 11 GPIO_ACTIVE_HIGH>;
-        diode-direction = "col2row";
-    };
-
-    sensors {
-        encoder1: encoder1 {
-            compatible = "zmk,encoder";
-            a-gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
-            b-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
-        };
-        encoder2: encoder2 {
-            compatible = "zmk,encoder";
-            a-gpios = <&gpio0 14 GPIO_ACTIVE_HIGH>;
-            b-gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
-        };
-        encoder3: encoder3 {
-            compatible = "zmk,encoder";
-            a-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
-            b-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
-        };
+    leds {
+        compatible = "zmk,led-apa102";
+        label = "RGB";
+        #led-cells = <3>;
+        pin_clk = <&gpio0 18 GPIO_ACTIVE_HIGH>;
+        pin_data = <&gpio0 19 GPIO_ACTIVE_HIGH>;
+        led_count = <35>; /* 7x5 */
     };
 };
