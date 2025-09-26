@@ -1,2 +1,2 @@
 config SHIELD_MY_7X5
-    def_bool $(shields_list_contains,my_7x5)
+    def_bool $(shields_list_contains,my_5x7)

@@ -1,6 +1,6 @@
-if SHIELD_MY_7X5
+if SHIELD_MY_5x7
 
 config ZMK_KEYBOARD_NAME
-    default "MY_7X5"
+    default "MY_5x7"
 
 endif
