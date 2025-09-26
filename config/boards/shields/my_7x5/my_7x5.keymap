@@ -1,3 +1,8 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -5,26 +10,26 @@
         base_layer {
             label = "BASE";
             bindings = <
-                &kp ESC    &kp Q    &kp W    &kp E    &kp R
-                &kp TAB    &kp A    &kp S    &kp D    &kp F
-                &kp LSHFT  &kp Z    &kp X    &kp C    &kp V
-                &kp LCTRL  &kp H    &kp J    &kp K    &kp L
-                &kp LALT   &kp U    &kp I    &kp O    &kp P
-                &kp SPC    &kp N    &kp M    &kp COMMA &kp DOT
-                &mo 1      &kp LEFT &kp DOWN &kp UP   &kp RIGHT
+                &kp ESC    &kp Q &kp W &kp E &kp R &kp T
+                &kp TAB    &kp A &kp S &kp D &kp F &kp G
+                &kp LSHFT  &kp Z &kp X &kp C &kp V &kp B
+                &kp LCTRL  &kp H &kp J &kp K &kp L &kp SEMI
+                &kp LALT   &kp U &kp I &kp O &kp P &kp BSPC
+                &kp SPC    &kp N &kp M &kp COMMA &kp DOT &kp ENTER
+                &mo 1      &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans
             >;
         };
 
         fn_layer {
             label = "FN";
             bindings = <
-                &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans
             >;
         };
     };
