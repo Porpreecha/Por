@@ -50,12 +50,12 @@
             encoder3_ccw: encoder3_ccw {
                 compatible = "zmk,encoder-macro";
                 key1 = <C_MINUS>;
-                key2 = <0>;
+                key2 = <NO>;
             };
             encoder3_cw: encoder3_cw {
                 compatible = "zmk,encoder-macro";
                 key1 = <C_EQUAL>;
-                key2 = <0>;
+                key2 = <NO>;
             };
         };
 
