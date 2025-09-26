@@ -3,6 +3,9 @@
         zmk,kscan = &kscan0;
     };
 
+    // -----------------------------
+    // Matrix Scan
+    // -----------------------------
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         row-gpios = <&gpio0 0 GPIO_ACTIVE_HIGH>,
@@ -24,7 +27,7 @@
     // Behaviors สำหรับ encoder
     // -----------------------------
     behaviors {
-                // Encoder 1: Mouse Middle + เลื่อนซ้าย/ขวา
+        // Encoder 1: Mouse Middle + เลื่อนซ้าย/ขวา
         encoder1_ccw: encoder1_ccw {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -59,7 +62,6 @@
             #binding-cells = <0>;
             bindings = <&kp C_EQUAL>;
         };
-
     };
 
     // -----------------------------
