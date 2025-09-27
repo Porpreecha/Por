@@ -20,19 +20,21 @@
         diode-direction = "col2row";
     };
 
-    encoder1: encoder1 {
-        compatible = "zmk,encoder";
-        a-gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
-        b-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
-    };
-    encoder2: encoder2 {
-        compatible = "zmk,encoder";
-        a-gpios = <&gpio0 14 GPIO_ACTIVE_HIGH>;
-        b-gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
-    };
-    encoder3: encoder3 {
-        compatible = "zmk,encoder";
-        a-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
-        b-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
+    sensors {
+        encoder1: encoder1 {
+            compatible = "zmk,encoder";
+            a-gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
+            b-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+        };
+        encoder2: encoder2 {
+            compatible = "zmk,encoder";
+            a-gpios = <&gpio0 14 GPIO_ACTIVE_HIGH>;
+            b-gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+        };
+        encoder3: encoder3 {
+            compatible = "zmk,encoder";
+            a-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
+            b-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
+        };
     };
 };
