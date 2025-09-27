@@ -36,27 +36,14 @@
                 &trans &trans &trans &trans &trans &trans &trans
             >;
         };
-    };
 
-    encoders {
-        compatible = "zmk,encoders";
-
-        encoder1 {
-            label = "ENC1";
-            bindings = <&macro_hello>, <&kp ENTER>;
-            button-bindings = <&kp SPACE>;
-        };
-
-        encoder2 {
-            label = "ENC2";
-            bindings = <&kp PG_UP>, <&kp PG_DN>;
-            button-bindings = <&kp BACKSPACE>;
-        };
-
-        encoder3 {
-            label = "ENC3";
-            bindings = <&kp VOL_UP>, <&kp VOL_DOWN>;
-            button-bindings = <&mo 1>;
+        encoder_layer {
+            label = "ENCODERS";
+            bindings = <
+                &macro_hello     &kp ENTER
+                &kp PG_UP        &kp PG_DN
+                &kp VOL_UP       &kp VOL_DOWN
+            >;
         };
     };
 };
