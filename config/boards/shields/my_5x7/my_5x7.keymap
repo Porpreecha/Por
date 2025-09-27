@@ -7,15 +7,8 @@
 / {
     macros {
         macro_hello: macro_hello {
-            compatible = "zmk,behavior-macro";
-            label = "HELLO_MACRO";
-            bindings = <
-                &kp H
-                &kp E
-                &kp L
-                &kp L
-                &kp O
-            >;
+            label = "HELLO";
+            bindings = <&kp H &kp E &kp L &kp L &kp O>;
         };
     };
 
@@ -24,7 +17,7 @@
 
         base_layer {
             label = "BASE";
-            bindings = <
+            bindings = < 
                 &kp ESC   &kp M     &kp I     &kp KP_NUMLOCK   &kp KP_SLASH     &kp KP_MULTIPLY   &kp KP_MINUS
                 &kp TAB   &kp Z     &kp R     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9   &kp KP_PLUS
                 &kp DEL   &kp U     &kp T     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6   &kp KP_ENTER
@@ -43,33 +36,27 @@
                 &trans &trans &trans &trans &trans &trans &trans
             >;
         };
+    };
 
-        encoder_bindings {
-            compatible = "zmk,encoder-bindings";
+    encoders {
+        compatible = "zmk,encoders";
 
-            encoder1: encoder1 {
-                bindings = <
-                    &macro_hello   // หมุนตามเข็ม → HELLO
-                    &kp ENTER      // หมุนทวนเข็ม → Enter
-                >;
-                button-bindings = < &kp SPACE >;   // ปุ่มกด = Space
-            };
+        encoder1 {
+            label = "ENC1";
+            bindings = <&macro_hello>, <&kp ENTER>;
+            button-bindings = <&kp SPACE>;
+        };
 
-            encoder2: encoder2 {
-                bindings = <
-                    &kp PG_UP
-                    &kp PG_DN
-                >;
-                button-bindings = < &kp BACKSPACE >;   // ปุ่มกด = Backspace
-            };
+        encoder2 {
+            label = "ENC2";
+            bindings = <&kp PG_UP>, <&kp PG_DN>;
+            button-bindings = <&kp BACKSPACE>;
+        };
 
-            encoder3: encoder3 {
-                bindings = <
-                    &kp VOL_UP
-                    &kp VOL_DOWN
-                >;
-                button-bindings = < &mo 1 >;   // ปุ่มกด = สลับไป FN layer
-            };
+        encoder3 {
+            label = "ENC3";
+            bindings = <&kp VOL_UP>, <&kp VOL_DOWN>;
+            button-bindings = <&mo 1>;
         };
     };
 };
