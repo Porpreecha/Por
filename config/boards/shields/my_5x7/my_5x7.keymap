@@ -13,7 +13,7 @@
                 &kp ESC    &kp M       &kp I      &kp KP_NUMLOCK     &kp KP_SLASH       &kp KP_MULTIPLY    &kp KP_MINUS
                 &kp TAB    &kp Z       &kp R      &kp KP_NUMBER_7    &kp KP_NUMBER_8    &kp KP_NUMBER_9    &kp KP_PLUS
                 &kp DEL    &kp U       &kp T      &kp KP_NUMBER_4    &kp KP_NUMBER_5    &kp KP_NUMBER_6    &kp KP_ENTER
-                &e_macro      &kp P       &kp UP     &kp KP_NUMBER_1    &kp KP_NUMBER_2    &kp KP_NUMBER_3    &kp KP_ENTER
+                &kp e      &kp P       &kp UP     &kp KP_NUMBER_1    &kp KP_NUMBER_2    &kp KP_NUMBER_3    &kp KP_ENTER
                 &mo 1      &kp LEFT    &kp DOWN   &kp RIGHT          &kp KP_NUMBER_0    &kp KP_DOT         &kp KP_ENTER
 
             >;
