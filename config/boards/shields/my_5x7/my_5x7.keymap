@@ -5,6 +5,20 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
+    macros {
+        macro_hello: macro_hello {
+            compatible = "zmk,behavior-macro";
+            label = "HELLO_MACRO";
+            bindings = <
+                &kp H
+                &kp E
+                &kp L
+                &kp L
+                &kp O
+            >;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -28,6 +42,34 @@
                 &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans
             >;
+        };
+
+        encoder_bindings {
+            compatible = "zmk,encoder-bindings";
+
+            encoder1: encoder1 {
+                bindings = <
+                    &macro_hello   // หมุนตามเข็ม → HELLO
+                    &kp ENTER      // หมุนทวนเข็ม → Enter
+                >;
+                button-bindings = < &kp SPACE >;   // ปุ่มกด = Space
+            };
+
+            encoder2: encoder2 {
+                bindings = <
+                    &kp PG_UP
+                    &kp PG_DN
+                >;
+                button-bindings = < &kp BACKSPACE >;   // ปุ่มกด = Backspace
+            };
+
+            encoder3: encoder3 {
+                bindings = <
+                    &kp VOL_UP
+                    &kp VOL_DOWN
+                >;
+                button-bindings = < &mo 1 >;   // ปุ่มกด = สลับไป FN layer
+            };
         };
     };
 };
